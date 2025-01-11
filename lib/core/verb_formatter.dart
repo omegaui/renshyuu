@@ -43,7 +43,7 @@ class VerbFormatter {
     // negative, imperative, potential, volitional
     buffer.writeln("Negative Form: ${verb.negativeForm().green.bold}");
     buffer.writeln("Imperetive Form: ${verb.imperetiveForm().green.bold}");
-    buffer.writeln("Potential Form: ${verb.politeForm().join("、").green.bold}");
+    buffer.writeln("Potential Form: ${verb.potentialForm().green.bold}");
     buffer.writeln("Volitional Form: ${verb.volitionalForm().green.bold}");
     // should form
     buffer.writeln("Should Form: ${verb.shouldForm().green.bold}");

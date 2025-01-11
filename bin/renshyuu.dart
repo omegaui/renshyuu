@@ -112,8 +112,8 @@ void main(List<String> args) {
         }
       } else if (command == Command.progress) {
         stdout.writeln(
-            "Targets left: ${practiceMatrix.length - practiceIndex - 1}");
-        stdout.writeln("Conjugations practiced: ${practiceIndex + 1}");
+            "Targets left: ${practiceMatrix.length - practiceIndex}");
+        stdout.writeln("Conjugations practiced: $practiceIndex");
       } else if (command == Command.show) {
         stdout.writeln("Enter the dictionary form of the verb".yellow);
         stdout.write("> ");
