@@ -31,7 +31,7 @@ renshyuu --source verb_list.txt
 
 A verb list file is just a simple text file, containing verbs in Japanese of course, separated by
 new-line character.
-an example [n5 vocabulary file](https://github.com/omegaui/renshyuu/main/verb_list_n5.txt) is
+an example [n5 vocabulary file](https://github.com/omegaui/renshyuu/blob/master/verb_list_n5.txt) is
 provided with this project.
 
 # Install
