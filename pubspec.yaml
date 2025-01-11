@@ -1,0 +1,14 @@
+name: renshyuu
+description: Generates te-forms and every verb conjugation for a list of verbs provided.
+version: 0.0.1
+# repository: https://github.com/my_org/my_repo
+
+environment:
+  sdk: ^3.5.4
+
+# Add regular dependencies here.
+#dependencies:
+
+dev_dependencies:
+  lints: ^4.0.0
+  test: ^1.24.0
