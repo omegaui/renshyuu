@@ -19,7 +19,7 @@ memorizing a whole "sentence" of my own instead of the "word" is easier.
 ## Features
 
 - Self-generates correct verb conjugation for both ichidan and godan verbs.
-- A Practice REPL included.
+- A Practise REPL included.
 
 ## Usage
 
