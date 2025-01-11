@@ -1,16 +1,14 @@
 // Renshyuu
-// Generates て forms and all-stem conjugations for the verbs,
-// from a verb list file provided with --generate flag.
-// For ex: See file [renshyuu_generate.dart]
+// Generates て forms and all conjugations for the verbs given by
+// a verb list file provided with --source flag.
+// see [verb_list_n5.txt] file for sample reference.
 
 import 'dart:convert';
 import 'dart:io';
 
 import 'package:chalkdart/chalkstrings.dart';
-import 'package:renshyuu/core/verb.dart';
 import 'package:renshyuu/core/verb_classifier.dart';
 import 'package:renshyuu/core/verb_formatter.dart';
-import 'package:renshyuu/core/verb_hierarchy.dart';
 
 const version = "0.0.1";
 
@@ -96,6 +94,8 @@ void main(List<String> args) {
         }
       } catch (e) {
         stderr.writeln("Invalid Command : $nextCommand");
+        command = Command.enter;
+        continue;
       }
 
       if (command == Command.exit) {
@@ -111,15 +111,15 @@ void main(List<String> args) {
               "Try making a sentence with ${practiceMatrix[practiceIndex++].green.bold}");
         }
       } else if (command == Command.progress) {
-        stdout.writeln(
-            "Targets left: ${practiceMatrix.length - practiceIndex}");
+        stdout
+            .writeln("Targets left: ${practiceMatrix.length - practiceIndex}");
         stdout.writeln("Conjugations practiced: $practiceIndex");
       } else if (command == Command.show) {
         stdout.writeln("Enter the dictionary form of the verb".yellow);
         stdout.write("> ");
         String? dictionaryForm = stdin.readLineSync(encoding: utf8);
         if (dictionaryForm != null && dictionaryForm.trim().isNotEmpty) {
-          stdout.writeln("Finding: \"${dictionaryForm.bold}\"");
+          stdout.writeln("Finding: ${dictionaryForm.bold}");
           final hasVerb = verbs.any((e) => e.dictionaryForm == dictionaryForm);
           if (!hasVerb) {
             stderr.writeln(
@@ -128,7 +128,8 @@ void main(List<String> args) {
           } else {
             final verb =
                 verbs.firstWhere((e) => e.dictionaryForm == dictionaryForm);
-            stdout.writeln(VerbFormatter.format(verb, prefix: "(${verb.type}) "));
+            stdout
+                .writeln(VerbFormatter.format(verb, prefix: "(${verb.type}) "));
           }
         }
       } else if (command == Command.help) {
