@@ -7,6 +7,8 @@ abstract class Verb {
 
   Verb(this.dictionaryForm, this.verb, this.verbEnding);
 
+  String get type => runtimeType == IchidanVerb ? "ichidan" : "godan";
+
   String negativeForm();
 
   List<String> politeForm();
@@ -25,6 +27,21 @@ abstract class Verb {
 
   String teIruForm() {
     return "${teForm()}いる";
+  }
+
+  List<String> get all {
+    final result = <String>[];
+    result.add(dictionaryForm);
+    result.add(negativeForm());
+    result.add(potentialForm());
+    result.add(imperetiveForm());
+    result.add(hypotheticalForm());
+    result.add(volitionalForm());
+    result.add(shouldForm());
+    result.add(teForm());
+    result.add(teIruForm());
+    result.addAll(politeForm());
+    return result;
   }
 }
 
