@@ -9,7 +9,7 @@ abstract class Verb {
 
   String negativeForm();
 
-  String politeForm();
+  List<String> politeForm();
 
   String imperetiveForm();
 
@@ -22,6 +22,10 @@ abstract class Verb {
   String shouldForm();
 
   String teForm();
+
+  String teIruForm() {
+    return "${teForm()}いる";
+  }
 }
 
 class IchidanVerb extends Verb {
@@ -43,8 +47,8 @@ class IchidanVerb extends Verb {
   }
 
   @override
-  String politeForm() {
-    return "$verbます";
+  List<String> politeForm() {
+    return ["$verbます", "$verbません", "$verbました", "$verbませんでした"];
   }
 
   @override
@@ -87,8 +91,13 @@ class GodanVerb extends Verb {
   }
 
   @override
-  String politeForm() {
-    return "$verb${stem(verbEnding, Stem.i)}ます";
+  List<String> politeForm() {
+    return [
+      "$verb${stem(verbEnding, Stem.i)}ます",
+      "$verb${stem(verbEnding, Stem.i)}ません",
+      "$verb${stem(verbEnding, Stem.i)}ました",
+      "$verb${stem(verbEnding, Stem.i)}ませんでした"
+    ];
   }
 
   @override

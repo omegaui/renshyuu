@@ -9,14 +9,21 @@ class VerbFormatter {
     buffer.writeln(
       "${prefix ?? ""}${verb.dictionaryForm}${isIchidan ? "*" : ""}",
     );
-    buffer.writeln(verb.teForm());
-    buffer.writeln(verb.negativeForm());
-    buffer.writeln(verb.politeForm());
-    buffer.writeln("${verb.imperetiveForm()} (cmd)");
-    buffer.writeln(verb.hypotheticalForm());
-    buffer.writeln("${verb.potentialForm()} (can)");
-    buffer.writeln("${verb.volitionalForm()} (let)");
+    // te-form
+    buffer.writeln([verb.teForm(), verb.teIruForm()].join("、"));
+    // polite-forms
+    buffer.writeln(verb.politeForm().join("、"));
+    // negative, imperative, potential, volitional
+    buffer.writeln([
+      verb.negativeForm(),
+      verb.imperetiveForm(),
+      verb.potentialForm(),
+      verb.volitionalForm()
+    ].join("、"));
+    // should form
     buffer.writeln(verb.shouldForm());
+    // hypothetical form
+    buffer.writeln(verb.hypotheticalForm());
     return buffer.toString();
   }
 }
